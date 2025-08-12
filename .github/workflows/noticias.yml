@@ -1,0 +1,29 @@
+name: Noticias Argentina Diario
+
+on:
+  schedule:
+    - cron: "0 13 * * 1-5"  # Lunes a viernes, 13:00 UTC = 08:00 Colombia
+  workflow_dispatch:        # Permite ejecutarlo manualmente desde GitHub
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Ejecutar script
+        env:
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+        run: python main.py
