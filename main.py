@@ -25,7 +25,7 @@ URLS = [
 PALABRAS_CLAVE = [
     "politica", "diputado", "gobierno", "eleccion",
     "economia", "finanzas", "empresario", "caputo",
-    "policial", "delito", "detenido", "comisaria",
+    "policial", "delito", "detenido", "comisaria", "captura", 
     "judicial", "tribunal", "condena", "fallo",
     "salud", "hospital", "vacuna", "medico"
 ]
